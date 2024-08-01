@@ -244,3 +244,43 @@ $$R\sim\mathcal{CN}\left(AST_p,\frac{T_pN}{B_n}\left(N+2S\right)\right)$$
 $$\xi_{o}=\frac{|A|^{2}S^{2}T_{p}^{2}}{\frac{T_{p}N}{B_{n}}(N+2S)}=\frac{|A|^2T_pB_nS^2}{N^2+2SN}=\frac{|A|^2T_pB_n\xi_i^2}{1+2\xi_i}$$
 
 假设 $|A|^2=1$ ，并且接收到的带宽 $B_n$ 与信号带宽 $B_s$ 匹配。
+
+$R$ 的均值和方差都取决于接收到的信号强度 $S$ 。这意味着 $R$ 的均值和方差都将在原假设和备择假设之间发生变化，并且最优检测器是二次的。对于扩频信号检测，信号强度 $(S)$ 通常比噪声方差 $(N)$ 弱得多。因此，方差近似恒定 $\sigma_{r}^{2} \approx T_{p}N^{2}/B_{n}$ ，简单的阈值检测方法可使用。
+
+为了构建检验统计量，我们注意到 $R$ 的期望取决于两个接收向量之间的未知相移。因此，我们必须找到不随A变化的检验统计量。可以通过将 $R$ 的平方除以 $\mathcal{H}_{0}$ 条件下的噪声来实现这一点。
+
+$$z(\mathbf{y}_1,\mathbf{y}_2)=\frac{2}{\sigma_0^2}|\mathbf{y}_1^H\mathbf{y}_2|^2$$
+
+其中，
+
+$$\sigma_0^2=\frac{N^2T_{corr}}{B_n}$$
+
+这遵循具有两个自由度的卡方分布。在 $\mathcal{H}_{1}$ 条件下，写出R的方差：
+
+$$\sigma_1^2=\sigma_0^2(1+2\xi_i)$$
+
+且可以用下列方法计算出虚警概率：
+
+$$\begin{aligned}P_{\mathrm{FA}}&=-F_{\chi^{2}}(\eta;2)\\\eta&=F_{\chi^{2}}^{-1}(1-P_{\mathrm{FA}};2)\end{aligned}$$
+
+接下来，定义一个虚拟变量：
+
+$$\widehat{z}(\mathbf{y}_1,\mathbf{y}_2)=\frac{\sigma_0^2}{\sigma_1^2}z(\mathbf{y}_1,\mathbf{y}_2)=\frac{z(\mathbf{y}_1,\mathbf{y}_2)}{1+2\xi_i}$$
+
+其在 $\mathcal{H}_{1}$ 下分布为非中心卡方随机变量（具有两个自由度和非中心参数）：
+
+$$\lambda=\xi_{o}$$
+
+为了计算检测的概率，为 $\widehat{z}(\mathbf{y}_1,\mathbf{y}_2)$ 定义了一个等效间隔：
+
+$$Pr\{z(\mathbf{y}_1,\mathbf{y}_2)\geq\eta\}=Pr\left\{\widehat{z}(\mathbf{y}_1,\mathbf{y}_2)\geq\frac{\eta}{1+2\xi_i}\right\}$$
+
+从这里可以看出，计算检测概率的方程基于非中心卡方CDF，但是具有阈值偏移：
+
+$$P_\mathrm{D}=1-F_{\chi^2}\left(\frac\eta{1+2\xi_i};2,\xi_o\right)$$
+
+## 性能分析
+
+为验证能量检测器和互相关检测器的相对性能，考虑从飞机上检测以3G CDMA波形建模的商用宽带手机信号，以及从桅杆上的地面接收机检测机载LPI式雷达脉冲。
+
+注意，能量检测器的性能和互相关检测器的性能是紧密相关的。这是因为这些计算假设噪声是完全已知的，在这种情况下，能量检测器可以很好地校准，以检测总能量的任意增量，特别是当M很大时。互相关检测器仍然受益于此：它将相关信号与不相关噪声进行比较，而能量检测器只有信号的单个噪声样本。
