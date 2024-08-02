@@ -615,7 +615,7 @@ $$ [{\mathbf{y}}_1 ]_i =[ \theta_1 ]_i^2  ， {\mathbf{G}}_1 = {\left[\begin{arr
 
 注意，参数矢量现在在每个维度上都具有参考传感器和辐射源之间的平方距离。该方程组的解将为我们提供距参考传感器的偏移平方；初始解可用于确定应在哪个方向上应用偏移。根据以下方程求解偏移量：
 
-$$\mathbf{A}={\mathbf{G}}_1^T {\mathbf{B}}_1^{-1} {\mathbf{G}}^T {\mathbf{C}}_1^{-1} \mathbf{G}{\mathbf{B}}_1^{-1} ， {\hat{\theta} }_1 ={{[\mathbf{A}{\mathbf{G}}_1 ]}}^{-1} \mathbf{A}{\mathbf{y}}_1$ ， {\hat{\mathbf{x}} }_1 =\pm \sqrt{{\hat{\theta} }_1 }+{\mathbf{x}}_N $$ 
+$$\mathbf{A}={\mathbf{G}}_1^T {\mathbf{B}}_1^{-1} {\mathbf{G}}^T {\mathbf{C}}_1^{-1} \mathbf{G}{\mathbf{B}}_1^{-1} ， {\hat{\theta} }_1 ={{[\mathbf{A}{\mathbf{G}}_1 ]}}^{-1} \mathbf{A}{\mathbf{y}}_1， {\hat{\mathbf{x}} }_1 =\pm \sqrt{{\hat{\theta} }_1 }+{\mathbf{x}}_N $$ 
 
 根据提供与初始位置估算值 $\hat{\mathit{\mathbf{x}}}$ 位于同一象限的估算值 ${\hat{\mathbf{x}} }_1$ 的值来选择平方根的正解。
 
