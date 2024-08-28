@@ -10,3 +10,4 @@
 ## [Radar Systems Analysis and Design Using MATLAB](https://yangpannanren.github.io/Book_Code/#/Radar%20Systems%20Analysis%20and%20Design%20Using%20MATLAB/)
 ## [全面详解LTE:MATLAB建模、仿真与实现](https://yangpannanren.github.io/Book_Code/#/全面详解LTE：MATLAB建模、仿真与实现/)
 ## [Introduction to Multiple Antenna Communications and Reconfigurable Surfaces](https://yangpannanren.github.io/Book_Code/#/Introduction%20to%20Multiple%20Antenna%20Communications%20and%20Reconfigurable%20Surfaces/)
+## [5G NR物理层技术详解：原理、模型和组件](https://yangpannanren.github.io/Book_Code/#/5G%20NR物理层技术详解：原理、模型和组件/)
